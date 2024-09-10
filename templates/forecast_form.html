@@ -1,0 +1,24 @@
+<form method="GET" action="/forecast">  
+    <label for="commodity">Select Commodity:</label>  
+    <select name="commodity" id="commodity">  
+       {% for commodity in commodities %}  
+       <option value="{{ commodity }}">{{ commodity }}</option>  
+       {% endfor %}  
+    </select>  
+    <label for="forecast_days">Number of Days to Forecast:</label>  
+    <input type="number" id="forecast_days" name="forecast_days">  
+    <label for="threshold">Price Threshold:</label>  
+    <input type="number" id="threshold" name="threshold">  
+    <label for="prediction_type">Prediction Type:</label>  
+    <select name="prediction_type" id="prediction_type">  
+       <option value="day">Day-wise</option>  
+       <option value="month">Month-wise</option>  
+       <option value="season">Season-wise</option>  
+    </select>  
+    <label for="model_type">Select Model:</label>  
+    <select name="model_type" id="model_type">  
+       <option value="LSTM">LSTM</option>  
+       <option value="ARIMA">ARIMA</option>  
+    </select>  
+    <input type="submit" value="Submit">  
+ </form>

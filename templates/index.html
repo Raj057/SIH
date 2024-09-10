@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commodity Price Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Commodity Price Dashboard</h1>
+    <h2>Select a commodity to view price trends:</h2>
+    <ul>
+        {% for commodity in commodities %}
+            <li><a href="/commodity/{{ commodity }}">{{ commodity }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Forecast Price Trends</h2>
+    <a href="/forecast">Go to Forecast</a>
+</body>
+</html>

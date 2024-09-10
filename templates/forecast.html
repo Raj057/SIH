@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ commodity }} Price Forecast</title>
+</head>
+<body>
+    <h1>{{ commodity }} Price Forecast for the Next {{ forecasted_prices|length }} Days</h1>
+
+    <div>
+        {{ graph_html | safe }}
+    </div>
+
+    <h2>Forecasted Prices:</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Forecasted Price</th>
+        </tr>
+        {% for i in range(forecasted_prices|length) %}
+        <tr>
+            <td>{{ forecast_dates[i].strftime('%Y-%m-%d') }}</td>
+            <td>{{ forecasted_prices[i] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Market Intervention Decision: {{ decision }}</h2>
+    
+    {% if release_amount %}
+        <h3>Recommended Buffer Stock to Release: {{ release_amount }}</h3>
+    {% endif %}
+    
+    <a href="/">Back to Home</a>
+</body>
+</html>
